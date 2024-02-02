@@ -1,0 +1,267 @@
+@font-face {
+    font-family: Coda;
+    src: local("Coda"), url(fonts/Coda/Coda-Regular.ttf);
+    font-weight: normal;
+}
+@font-face {
+    font-family: Coda;
+    src: local("Coda"), url(fonts/Coda/Coda-ExtraBold.ttf);
+    font-weight: bold;
+}
+@font-face {
+    font-family: PermanentMarker;
+    src: url(fonts/Permanent_Marker/PermanentMarker-Regular.ttf);
+}
+
+/**
+ * Minimal Reset
+ */
+html {
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body, h1, h2, h3, h4, h5, h6, p, ol, ul {
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+
+/**
+ * Variables
+ */
+body {
+    --border-color: #e6e6e6;
+    --main-color: #e6e6e6;
+    --main-bg-color: #8143c2;
+    --secondary-color: #ff7300;
+    --dark-gray: #454545;
+}
+
+/**
+ * Full page
+ */
+body {
+    background-image: url("/img/tiled-sm.png");
+    background-position: left top;
+    background-size: auto;
+    background-repeat: repeat;
+    background-attachment: scroll;
+
+    color: var(--main-color);
+}
+div#page {
+    width: 100%;
+}
+.restricted-container {
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+a {
+    color: var(--main-color);
+    text-decoration: none;
+}
+a:hover {
+    color: var(--secondary-color);
+}
+
+/**
+ * Header
+ */
+
+header {
+    width: 100%;
+    border: 3px solid var(--border-color);
+    background-color: var(--main-bg-color);
+    border-radius: 25px;
+}
+
+header nav {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: inherit;
+    align-items: center;
+    justify-content: space-between;
+    flex-basis: auto;
+    flex-grow: 1;
+}
+
+header img {
+    max-height: 100px;
+    width: auto;
+    filter: invert(100%);
+}
+
+header nav ul {
+    display: flex;
+    align-self: center;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+header .menu-item {
+    font-family: Coda;
+    font-size: 300%;
+    text-transform: uppercase;
+    align-self: center;
+    flex-grow: 1;
+}
+
+header .menu-item:first-child {
+    border-right: 3px solid var(--border-color);
+}
+header .menu-item:last-child {
+    border-left: 3px solid var(--border-color);
+}
+
+header .menu-item:not(:first-child):not(:last-child) {
+    font-size: 180%;
+    max-width: -moz-min-content;
+    max-width: min-content;
+    align-self: center;
+}
+
+
+/**
+ * Page content
+ */
+
+#page-content {
+    margin-top: 30px;
+}
+
+#main-content {
+    background-color: var(--main-bg-color);
+    border: 3px solid var(--border-color);
+    border-radius: 25px;
+    color: var(--main-color);
+    padding: 15px;
+}
+
+.feature-block {
+    height: 400px;
+    position: relative;
+    display: flex;
+    margin-bottom: 15px;
+    gap: 15px;
+}
+
+.feature-container,
+.genre-container {
+    position: absolute;
+    height: 100%;
+    border: 2px solid var(--border-color);
+    border-radius: 25px;
+    z-index: 0;
+}
+
+.feature-container.left,
+.genre-container.left,
+.feature-outer.left {
+    left: 0;
+}
+.feature-container.right,
+.genre-container.right,
+.feature-outer.right {
+    right: 0;
+}
+
+.genre-container {
+    max-width: 33%;
+    width: 33%;
+    background-image: url("/img/tiled-sm.png");
+}
+
+.feature-container {
+    max-width: 65%;
+    width: 65%;
+    background-color: var(--secondary-color);
+    color: var(--main-color);
+    z-index: 100;
+}
+
+.genre {
+    height: 100%;
+    position: relative;
+    display: flex;
+}
+
+.genre h3 {
+    font-family: PermanentMarker;
+    font-size: 32px;
+    display: block;
+    top: 45%;
+    margin: auto auto;
+    width: min-content;
+    transform: rotate(300deg);
+}
+
+.feature {
+    width: 100%;
+    height: 100%;
+    border-radius: 24px;
+    background-size: cover;
+    background-position: 50% 50%;
+    padding-top: 1px; /* prevent margin collapsing */
+}
+
+h3.feature-title {
+    font-size: 240%;
+    font-family: PermanentMarker;
+    width: max-content;
+    margin: 30px auto;
+    filter: drop-shadow(2px 2px 4px black);
+}
+
+p.feature-desc {
+    font-size: 120%;
+    font-family: PermanentMarker;
+    max-width: 80%;
+    width: max-content;
+    margin: 30px auto;
+    filter: drop-shadow(2px 2px 4px black);
+}
+
+.feature-outer {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    max-width: 65%;
+    z-index: 1;
+    padding: 15px;
+    border: 2px solid var(--border-color);
+    border-radius: 25px;
+    background-color: var(--dark-gray);
+    transition: max-width 0.4s ease-in-out;
+}
+.expanded .feature-outer {
+    max-width: 100%;
+}
+
+.additional-info {
+    font-family: Coda;
+    font-size: 120%;
+    color: var(--main-color);
+}
+
+
+.feature-outer.left .additional-info {
+    text-align: end;
+}
